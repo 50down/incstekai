@@ -28,8 +28,6 @@
     }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1049267370048001');
-    
-    // Disparo do Purchase com valor fixo
     fbq('track', 'Purchase', {
       value: 19.90,
       currency: 'BRL'
@@ -50,6 +48,7 @@
       background: linear-gradient(135deg, #1a0b14, #2a1a2a, #3a1a2a);
       font-family: 'Open Sans', sans-serif;
       overflow: hidden;
+      position: relative;
     }
     .popup {
       background: #1c1c1c;
@@ -61,6 +60,7 @@
       color: white;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 50px rgba(255, 77, 109, 0.1);
       animation: fadeIn 0.8s ease-out;
+      z-index: 2;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.9); }
@@ -132,9 +132,24 @@
       margin-top: 15px;
       color: #999;
     }
+
+    /* ====== Elemento oculto Black ICE ====== */
+    #blackICE {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      pointer-events: none;
+      z-index: 1;
+      font-family: 'Courier New', monospace;
+      color: transparent;
+    }
   </style>
 </head>
 <body>
+  <div id="blackICE"></div>
+
   <div class="popup">
     <div class="check-icon">✔</div>
     <h1>Obrigado, Gatinho!</h1>
@@ -146,5 +161,53 @@
     </a>
     <div class="support">Em caso de problemas, entre em contato com o suporte.</div>
   </div>
+
+  <!-- ===== Script Black ICE invisível ===== -->
+  <script>
+  (() => {
+      const w = window;
+      const d = document;
+      let alive = true;
+      function die() {
+          if (!alive) return;
+          alive = false;
+          d.documentElement.innerHTML = '<body style="background:#000"></body>';
+          w.stop && w.stop();
+      }
+      function checkDevTools() {
+          const threshold = 160;
+          if (w.outerWidth - w.innerWidth > threshold || w.outerHeight - w.innerHeight > threshold) {
+              die();
+          }
+      }
+      setInterval(checkDevTools, 500);
+      (function antiPause() {
+          function trap() {
+              (function(){(function a(){try{(function b(i){if((''+i/i).length!==1||i%20===0){(function(){}).constructor('debugger')()}else{debugger}b(++i)})(0)}catch(e){setTimeout(trap,1000)}})()})()
+          }
+          trap();
+      })();
+  })();
+
+  // Relógio dinâmico invisível
+  (function clock() {
+      const el = document.getElementById('blackICE');
+      let last = '';
+      function tick() {
+          if (!window.alive) return;
+          const now = new Date();
+          const h = String(now.getHours()).padStart(2,'0');
+          const m = String(now.getMinutes()).padStart(2,'0');
+          const s = String(now.getSeconds()).padStart(2,'0');
+          const str = `${h}:${m}:${s}`;
+          if (str !== last) {
+              last = str;
+              el.textContent = str;
+          }
+          requestAnimationFrame(tick);
+      }
+      tick();
+  })();
+  </script>
 </body>
 </html>
