@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obrigado!</title>
+
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  
+  // INICIALIZA O SEU PIXEL (ID do chat anterior)
+  fbq('init', '1049267370048001'); 
+  
+  // Dispara o PageView padrão
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1049267370048001&ev=PageView&noscript=1"
+  /></noscript>
+  <style>
+    /* Estilo da página */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f4f7f6;
+      text-align: center;
+      color: #333;
+    }
+
+    /* Contêiner principal */
+    .container {
+      background: #ffffff;
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      max-width: 450px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #2c2c2c;
+      font-size: 2.5rem; /* 40px */
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.125rem; /* 18px */
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* O Botão Vermelho */
+    .red-button {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #dc3545; /* Vermelho (cor de "perigo" do Bootstrap) */
+      color: #ffffff;
+      padding: 14px 32px;
+      font-size: 1rem; /* 16px */
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Efeito ao passar o mouse */
+    .red-button:hover {
+      background-color: #c82333; /* Vermelho mais escuro */
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Obrigado!</h1>
+    <p>Sua solicitação foi concluída com sucesso.</p>
+    
+    <a href="#" class="red-button" id="continueButton">
+      Continuar
+    </a>
+  </div>
+
+  <script>
+    fbq('track', 'Purchase');
+    
+    // ---
+    // NOTA AVANÇADA:
+    // Se você precisar enviar o VALOR da compra e a MOEDA (altamente recomendado),
+    // comente a linha acima e descomente a linha abaixo,
+    // substituindo pelos seus valores dinâmicos.
+    // ---
+    /*
+    fbq('track', 'Purchase', {
+      value: 97.50,  // Ex: 97.50
+      currency: 'BRL' // Ex: 'BRL' para Reais
+    });
+    */
+  </script>
+
+</body>
+</html>
