@@ -6,7 +6,7 @@
   <title>Obrigado Gatinho - VIP</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap">
 
-  <script
+    <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
     data-utmify-prevent-xcod-sck
     data-utmify-prevent-subids
@@ -14,7 +14,7 @@
     defer
   ></script>
 
-  <script>
+    <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){
         n.callMethod ?
@@ -25,10 +25,10 @@
       s.parentNode.insertBefore(t,s)
     }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-    /* === SEU PIXEL ID FOI INSERIDO AQUI === */
-    fbq('init', '1049267370048001'); 
+    // NOVO PIXEL ID INSERIDO AQUI
+    fbq('init', '1049267370048001'); 
     
-    // Disparo do Purchase com valor fixo (do seu exemplo)
+    // Disparo do Purchase com valor fixo
     fbq('track', 'Purchase', {
       value: 19.90,
       currency: 'BRL'
@@ -101,7 +101,7 @@
       margin: 15px 0;
       line-height: 1.6;
       color: #d0d0d0;
-    }
+s   }
     .popup .exclusive {
       font-size: 12px;
       margin: 20px 0 10px;
@@ -131,39 +131,6 @@
       margin-top: 15px;
       color: #999;
     }
-
-    /* ===== CSS DO RELÓGIO IMPLEMENTADO E AJUSTADO PARA O POPUP ===== */
-    #clock{
-        font-size: 2.5em; /* Tamanho da fonte para caber no popup */
-        color: #ff6b87; /* Cor alterada de verde para rosa para combinar */
-        text-shadow: 0 0 10px #ff6b87, 0 0 20px #ff6b87, 0 0 30px #ff6b87; /* Sombra com a nova cor */
-        letter-spacing: .05em;
-        position: relative;
-        font-family: 'Courier New', monospace; /* Mantido para o estilo digital */
-        margin-top: 25px; /* Espaçamento superior */
-        padding-top: 15px; /* Espaçamento interno superior */
-        border-top: 1px solid #444; /* Linha separadora, sutil */
-    }
-
-    /* Linha de scan */
-    #clock::after{
-        content:'';
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:3px;
-        background: #ff6b87; /* Cor da linha de scan alterada para rosa */
-        animation: scan 2s linear infinite;
-        opacity:.5;
-    }
-
-    @keyframes scan{
-        0%   {top:0;}
-        100% {top:100%;}
-    }
-    /* ================================================================ */
-
   </style>
 </head>
 <body>
@@ -173,26 +140,11 @@
     <h2>Seu acesso VIP foi liberado</h2>
     <p>Agora é só clicar no botão abaixo para entrar direto no grupo exclusivo e aproveitar tudo.</p>
     <div class="exclusive">Acesso exclusivo 🔥</div>
-    
-    <a class="button" href="https://t.me/+tNxlw2LsaC4zNzg5" target="_blank">
+    
+        <a class="button" href="https://t.me/+tNxlw2LsaC4zNzg5" target="_blank">
       Acessar Conteúdo VIP 😻
     </a>
-    
     <div class="support">Em caso de problemas, entre em contato com o suporte.</div>
-
-    <div id="clock">00:00:00</div>
-      </div>
-
-  <script>
-    function updateClock(){
-        const now = new Date();
-        const h = String(now.getHours()).padStart(2,'0');
-        const m = String(now.getMinutes()).padStart(2,'0');
-        const s = String(now.getSeconds()).padStart(2,'0');
-        document.getElementById('clock').textContent = `${h}:${m}:${s}`;
-    }
-    updateClock();
-    setInterval(updateClock,1000);
-  </script>
+  </div>
 </body>
 </html>
